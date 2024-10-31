@@ -1,48 +1,85 @@
 # Dynamox Developer Challenges
 
-## About Dynamox
+- [x] Dynamox Full-Stack Developer Challenge
 
-[Dynamox](https://dynamox.net/) is a high-tech firm specializing in vibration analysis and industrial asset condition monitoring. Our expert team develops comprehensive hardware and software solutions, encompassing firmware, mobile applications (Android and iOS), and full-stack cloud native applications. 
+## Start project (with docker)
 
-With our proficiency in signal processing for vibration and acoustics, we deliver advanced and precise monitoring systems. We are committed to optimizing operational efficiency and facilitating proactive maintenance through our innovative technology and integrated solutions.
+You will need docker and docker-compose.
 
-## Positions
+`npm start` or `docker-compose up` to start the project then go to `localhost:3000`
 
-We are actively seeking a versatile Full Stack Developer with a strong emphasis on front-end development to join our team. Your primary responsibility will be enhancing our Corporate Channels—our Website, Blog, Support Portal, Salesforce integration, and our asset condition monitoring platform, [DynaPredict](https://dynamox.net/en/dynapredict). You will become an essential part of one of our dedicated development teams, where your front-end expertise will drive our projects to new heights.
+|-|-|
+|-|-|
+|frontend|`localhost:3000`|
+|backend|`localhost:3001`|
+|database|`localhost:27017`|
 
-However, while your main focus will be on front-end tasks, we also expect you to navigate backend development as and when necessary. You won't be alone in this; you will have the full support of our team to guide you through. This opportunity to learn and grow across different aspects of development will foster a dynamic and engaging work environment.
+## Stop project
 
-We value flexibility and collaboration, hence we provide opportunities for you to lend your skills to other teams when required. Join us on this exciting journey as we revolutionize our digital platforms. Currently we are particularly interested in individuals who can identify with one of the following role descriptions:
+`npm stop` or `docker-compose down`
 
-### Junior Software Developer
+## Start project (without docker)
 
-With limited experience, assists in coding, testing, and stabilizing systems under supervision. Communicates with immediate team members and solves straightforward problems with guidance. Should display a willingness to learn and grow professionally. This is an individual contributor role.
+You will need a running mongoDB.
 
-### Mid-level Software Developer
+### Backend
 
-With a certain level of proven experience, contributes to software development, solves moderate problems, and starts handling ambiguous situations with minimal guidance. Communicates with the broader team and engages in code reviews and documentation. This role also includes mentorship of junior engineers and a commitment to continuous learning. This is an individual contributor role.
+Go to `/backend` folder and edit `.env_example` then rename it to `.env`
 
-### Senior-level Software Developer
+Run backend with `npm install` & `npm start`
 
-With vast experience, enhances software development, leading complex system development and ambiguous situation handling. Tackles intricate problems and mentors junior and mid-level engineers. Champions coding standards, project strategy, and technology adoption. Communicates across teams, influencing technical and non-technical stakeholders. This individual contributor role blends technical expertise with leadership, focusing on innovation, mentorship, and strategic contributions to the development process.
+### Frontend
 
-## Challenges
+Go to `/frontend` folder then run `npm install` & `npm start`
 
-- [ ] [01 - Dynamox Full-Stack Developer Challenge](./full-stack-challenge.md)
-- [ ] [02 - Dynamox Front-end Developer Challenge](./front-end-challenge.md)
+## Features
 
-## Ready to Begin the Challenges?
+1 - Authentication
 
-1. [ ] Fork this repository to your own Github account.
-1. [ ] Create a new branch using your first name and last name. For example: `caroline-oliveira`.
-1. [ ] After completing the challenge, create a pull request to this repository (https://github.com/dynamox-s-a/js-ts-full-stack-test), aimed at the main branch.
-1. [ ] We will receive a notification about your pull request, review your solution, and get in touch with you.
+1. [x] As a user, I want to log in using a fixed email and password so that I can access private routes.
+1. [x] As a user, I want to be able to log out of the system so that I can prevent unauthorized access to my account.
+1. [x] No private routes should be accessible without authentication.
 
-## Frequently Asked Questions
+2 - Machine Management
 
-1. Is it necessary to fork the project?
-  **Yes, this allows us to see how much time you spent on the challenge.**
+1. [x] As a user, I want to create a new machine with an arbitrary name and with a type selected from a list ["Pump", "Fan"] so that I can manage it later.
+1. [x] As a user, I want to change the attributes (name and type) of a machine after creating it so that I can keep the machine information updated.
+1. [x] As a user, I want to delete a machine when it is no longer in use so that it doesn't clutter the system.
 
-</br>
+3 - Monitoring Points and Sensors Management
 
-**Good luck! We look forward to reviewing your submission.** 🚀
+1. [x] As a user, I want to create at least two monitoring points with arbitrary names for an existing machine, so that I can monitor the machine's performance.
+1. [x] As a user, I want to associate a sensor to an existing monitoring point so that I can monitor the machine's performance. The sensor should have a unique ID, and the sensor model name should be one of ["TcAg", "TcAs", "HF+"].
+1. [x] As a user, I want the system to prevent me from setting up "TcAg" and "TcAs" sensors for machines of the type "Pump".
+1. [x] As a user, I want to see all my monitoring points in a paginated list so that I can manage them. The list should display up to 5 monitoring points per page and should include the following information: "Machine Name", "Machine Type", "Monitoring Point Name", and "Sensor Model".
+1. [x] As a user, I want to sort the monitoring points list by any of its columns in ascending or descending order, so that I can easily find the information I'm looking for.
+
+4 - Technical requirements
+
+1. [x] Use TypeScript.
+1. [x] Use React.
+1. [x] Use Redux for managing global states.
+1. [x] Use Redux Thunks or Redux Saga for managing asynchronous side effects.
+1. [x] Use Next.js or Vite.
+1. [x] Use Material UI 5 for styling the application.
+1. [x] Create reusable components.
+1. [x] The code is well-organized and documented.
+1. [x] The application layout is responsive.
+The choice of remaining tools is at your discretion.
+
+6 - Bonus
+
+1. [ ] Implement unit tests for the application (let us know how to run them, otherwise we won't be able to evaluate).
+1. [x] Implement your own back-end code. If you pick this option, write it using NodeJS JavaScript runtime (not Java, not PHP...). Although we also work with Python here, we are looking for JavaScript related skills in this test.
+1. [x] If you choose to implement your own back-end, we encourage you to use either PostgreSQL or MongoDB as a persistence layer.
+1. [x] If you choose to use PostgreSQL, use Prisma ORM (or even try Drizzle, or Kysely) to interact with PostgreSQL.
+1. [x] If you choose to use MongoDB, use Mongoose ORM to interact with the database;
+1. [ ] Use Nest.js Framework for the back-end (we are moving some services to that tool).
+1. [ ] Use Nx to manage the whole application as a monorepo (we use that tool a lot here).
+1. [ ] Add e2e tests with Cypress (use it to test a full user flow).
+1. [ ] If you were provided with a baseline code, identify any areas of bad code or suboptimal implementations and refactor them.
+1. [ ] Deploy your application to a cloud provider and provide a link for the running app.
+
+## Test
+
+A postman collection file exists at the root of the project `api.postman_collection.json`. It can be imported into the postman app to test the api.

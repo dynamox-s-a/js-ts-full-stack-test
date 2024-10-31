@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "types": ["vitest/globals"],
+    // ↓ for mui 5 - https://mui.com/material-ui/guides/typescript/
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true
+    // ↑ end mui 5
+  },
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
